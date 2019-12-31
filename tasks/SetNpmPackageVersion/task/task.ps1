@@ -5,18 +5,19 @@
 param()
 Trace-VstsEnteringInvocation $MyInvocation
 try {
-    # Set the working directory.
-    $packageJsonFolder = Get-VstsInput -Name packageJsonFolder -Require
-    $major = Get-VstsInput -Name major -Require
-    $minor = Get-VstsInput -Name minor -Require
-    $patch = Get-VstsInput -Name patch -Require
+    $packageJsonFolder = Get-VstsInput -Name PackageJsonFolder
+    $major = Get-VstsInput -Name Major -AsInt
+    $minor = Get-VstsInput -Name Minor -AsInt
+    $patch = Get-VstsInput -Name Patch -AsInt
 
-    Write-Verbose "packageJsonFolder: '$packageJsonFolder'."
-    Write-Verbose "major: '$major'."
-    Write-Verbose "minor: '$minor'."
-    Write-Verbose "patch: '$patch'."
+    Write-Verbose "PackageJsonFolder: '$packageJsonFolder'"
+    Write-Verbose "Major: '$major'."
+    Write-Verbose "Minor: '$minor'."
+    Write-Verbose "Patch: '$patch'."
 
-    .\setNpmPackageVersion.ps1 -PackageJsonFolder $packageJsonFolder -Major $major -Minor $minor -Patch $patch
+    . $PSScriptRoot\functions.ps1
+    #.\setNpmPackageVersion.ps1 -PackageJsonFolder $packageJsonFolder -Major $major -Minor $minor -Patch $patch
+    Set-NpmPackageVersion -PackageJsonFolder $packageJsonFolder -Major $major -Minor $minor -Patch $patch
 } finally {
     Trace-VstsLeavingInvocation $MyInvocation
 }
