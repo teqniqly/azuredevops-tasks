@@ -1,0 +1,1 @@
+tfx extension create --rev-version --output-path dist\ --manifest-globs vss-extension.json

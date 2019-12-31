@@ -1,0 +1,60 @@
+{
+  "id": "fcd51920-2b55-11ea-aec9-97afca97423e",
+  "name": "SetNpmPackageVersion",
+  "friendlyName": "Teqniqly - Set NPM Package Version Task",
+  "description": "This task sets the package version in the package.json.",
+  "author": "Teqniqly",
+  "helpMarkDown": "",
+  "categories": ["Azure Pipelines"],
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "1",
+    "Minor": "0",
+    "Patch": "0"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "Set NPM Package Version for $(Project)",
+  "inputs": [
+    {
+      "name": "packageJsonFolder",
+      "type": "filePath",
+      "label": "Package.json folder",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The folder containing the package.json to update."
+    },
+    {
+      "name": "major",
+      "type": "number",
+      "label": "Major version",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The major package value."
+    },
+    {
+      "name": "minor",
+      "type": "number",
+      "label": "Minor version",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The minor package value."
+    },
+    {
+      "name": "patch",
+      "type": "number",
+      "label": "Patch version",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The patch package value."
+    }
+  ],
+  "execution": {
+    "PowerShell3": {
+      "target": "task.ps1"
+    }
+  }
+}

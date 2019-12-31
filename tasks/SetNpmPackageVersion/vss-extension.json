@@ -1,0 +1,36 @@
+{
+  "manifestVersion": 1,
+  "id": "Set-Npm-Package-Version-Task",
+  "name": "Set NPM Package Version",
+  "version": "1.0.7",
+  "publisher": "Teqniqly",
+  "targets": [
+      {
+          "id": "Microsoft.VisualStudio.Services"
+      }
+  ],    
+  "description": "This task sets the package version in the package.json.",
+  "categories": [
+      "Azure Pipelines"
+  ],
+  "icons": {
+      "default": "task/icon.png"
+  },
+  "files": [
+      {
+          "path": "task"
+      }
+  ],
+  "contributions": [
+      {
+          "id": "Teqniqly-Set-Npm-Package-Version-Task",
+          "type": "ms.vss-distributed-task.task",
+          "targets": [
+              "ms.vss-distributed-task.tasks"
+          ],
+          "properties": {
+              "name": "task"
+          }
+      }
+  ]
+}
